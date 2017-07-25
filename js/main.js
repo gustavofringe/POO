@@ -25,13 +25,17 @@ function authorize(country, means,age){
         this.means = means,
         this.age = age
 }
-var authorized = new authorize(['ETATS-UNIS','FRANCE','SUEDE'],['MONEY','MASTERCARD'],40);
+var authorized = new authorize(['ETATS-UNIS','FRANCE','SUEDE'],['MONEY','MASTERCARD','GOLD'],40);
 function check(){
     var x;
+    var y;
     authorized.age >user1.age?$('#check').text("Vous n'avez pas l'age requis"): $('#check').text("Vous avez l'age requis");
     for (x in authorized.country){
         console.log(authorized.country[x].toLowerCase())
         authorized.country[x].toLowerCase() == user1.country.toLowerCase()?$('#check2').text("Vous ne rentrer pas"):$('#check2').text("Vous rentrer");
+    }
+    for (y in authorized.means){
+        authorized.means[y].toLowerCase() == user1.means[y]?$('#check3').text("Vous ne pouvez pas"):$('#check3').text("Vous pouver");
     }
 }
 check()
