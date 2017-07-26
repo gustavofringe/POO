@@ -6,19 +6,83 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
     <title>POO</title>
 </head>
-<body>
+<body onload="check()">
 <header>
-    <h1>Exercice POO</h1>
+    <div class="container"><h1 class="text-center">Exercice POO</h1></div>
+    <!-- /.container -->
 </header>
 <main>
-    <input id="firstname" type="text">
-    <input id="lastname" type="text">
-    <input id="age" type="text">
-    <div id="check"></div>
-    <div id="check2"></div>
-    <div id="check3"></div>
+
+    <div class="container">
+        <h2 class="text-center">Autorisation</h2>
+        <label for="firstname">Prénom</label>
+        <input id="firstname" type="text">
+        <label for="lastname">Nom</label>
+        <input id="lastname" type="text">
+        <label for="age">Année de naissance</label>
+        <input id="age" type="text">
+        <div>Vous devez avoir 40ans</div>
+        <div id="check"></div>
+        <div>Vous devez être en France, aux Etats-unis ou en Suéde</div>
+        <div id="check2"></div>
+        <div>Les moyens de paiements autoriser sont: monnaie, Visa, Gold</div>
+        <div id="check3"></div>
+        <h2>Jeu de combat</h2>
+        <label for="warrior1">Combattant 1</label>
+        <input type="text" id="warrior1">
+        <!-- /#warrior1 -->
+        <label for="warrior2">Combattant 2</label>
+        <input type="text" id="warrior2">
+        <!-- /#warrior2 -->
+        <div>Attaque combattant 1</div>
+        <button value="+">+</button>
+        <input type="text" value="0">
+        <button value="-">-</button>
+        <div>Attaque combattant 2</div>
+        <button value="+">+</button>
+        <input type="text" value="0">
+        <button value="-">-</button>
+        <table>
+            <tr>
+                <td>Combattant 1</td>
+                <td>Combattant 2</td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="attack1">Attaque</label>
+                    <input type="text" id="attack1">
+                </td>
+                <td>
+                    <label for="attack2">Attaque</label>
+                    <input type="text" id="attack2">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="defense1">Defense</label>
+                    <input type="text" id="defense1">
+                </td>
+                <td>
+                    <label for="defense2">Defense</label>
+                    <input type="text" id="defense2">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="hearth1">Vie</label>
+                    <input type="text" id="hearth1">
+                </td>
+                <td>
+                    <label for="hearth2">Vie</label>
+                    <input type="text" id="hearth2">
+                </td>
+            </tr>
+        </table>
+    </div>
+    <!-- /.container -->
 </main>
 </body>
 <script src="js/jquery-3.2.1.min.js"></script>
