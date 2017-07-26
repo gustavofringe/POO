@@ -11,79 +11,132 @@
 </head>
 <body onload="check()">
 <header>
-    <div class="container"><h1 class="text-center">Exercice POO</h1></div>
+    <div class="container"><h1 class="text-center">Exercices POO</h1></div>
     <!-- /.container -->
 </header>
 <main>
 
     <div class="container">
         <h2 class="text-center">Autorisation</h2>
-        <label for="firstname">Prénom</label>
-        <input id="firstname" type="text">
-        <label for="lastname">Nom</label>
-        <input id="lastname" type="text">
-        <label for="age">Année de naissance</label>
-        <input id="age" type="text">
+        <div class="row">
+            <div class="col-4">
+                <label for="firstname">Prénom</label>
+                <input class="form-control" id="firstname" type="text">
+            </div>
+            <div class="col-4">
+                <label for="lastname">Nom</label>
+                <input class="form-control" id="lastname" type="text">
+            </div>
+            <div class="col-4">
+                <label for="age">Année de naissance</label>
+                <input class="form-control" id="age" type="text">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <label for="means">Moyen de paiements</label>
+                <input class="form-control" id="means" type="text">
+            </div>
+            <div class="col-4">
+                <label for="country">Pays</label>
+                <input class="form-control" id="country" type="text">
+            </div>
+        </div>
         <div>Vous devez avoir 40ans</div>
         <div id="check"></div>
         <div>Vous devez être en France, aux Etats-unis ou en Suéde</div>
         <div id="check2"></div>
-        <div>Les moyens de paiements autoriser sont: monnaie, Visa, Gold</div>
+        <div>Les moyens de paiements autoriser sont: Monnaie, Visa, Gold</div>
         <div id="check3"></div>
         <h2>Jeu de combat</h2>
-        <label for="warrior1">Combattant 1</label>
-        <input type="text" id="warrior1">
-        <!-- /#warrior1 -->
-        <label for="warrior2">Combattant 2</label>
-        <input type="text" id="warrior2">
-        <!-- /#warrior2 -->
-        <div>Attaque combattant 1</div>
-        <button value="+">+</button>
-        <input type="text" value="0">
-        <button value="-">-</button>
-        <div>Attaque combattant 2</div>
-        <button value="+">+</button>
-        <input type="text" value="0">
-        <button value="-">-</button>
-        <table>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-4">
+                    <label for="warrior1">Combattant 1</label>
+                    <input class="form-control" type="text" id="warrior1">
+                    <!-- /#warrior1 -->
+                </div>
+                <div class="col-4">
+                    <label for="warrior2">Combattant 2</label>
+                    <input class="form-control" type="text" id="warrior2">
+                    <!-- /#warrior2 -->
+                </div>
+                <div class="col-4">
+                    <label for="warrior3">Magicien</label>
+                    <input class="form-control" type="text" id="warrior3">
+                    <!-- /#warrior3 -->
+                </div>
+            </div>
+        </div>
+        <table class="table table-striped table-inverse">
             <tr>
                 <td>Combattant 1</td>
                 <td>Combattant 2</td>
+                <td>Magicien</td>
             </tr>
             <tr>
-                <td>
+                <td scope="row">
                     <label for="attack1">Attaque</label>
-                    <input type="text" id="attack1">
+                    <input class="form-control" type="text" id="attack1">
                 </td>
                 <td>
                     <label for="attack2">Attaque</label>
-                    <input type="text" id="attack2">
+                    <input class="form-control" type="text" id="attack2">
+                </td>
+                <td>
+                    <label for="attack3">Attaque</label>
+                    <input class="form-control" type="text" id="attack3">
                 </td>
             </tr>
             <tr>
                 <td>
                     <label for="defense1">Defense</label>
-                    <input type="text" id="defense1">
+                    <input class="form-control" type="text" id="defense1">
                 </td>
                 <td>
                     <label for="defense2">Defense</label>
-                    <input type="text" id="defense2">
+                    <input class="form-control" type="text" id="defense2">
+                </td>
+                <td>
+                    <label for="defense3">Defense</label>
+                    <input class="form-control" type="text" id="defense3">
                 </td>
             </tr>
             <tr>
                 <td>
                     <label for="hearth1">Vie</label>
-                    <input type="text" id="hearth1">
+                    <input class="form-control" type="text" id="hearth1">
                 </td>
                 <td>
                     <label for="hearth2">Vie</label>
-                    <input type="text" id="hearth2">
+                    <input class="form-control" type="text" id="hearth2">
+                </td>
+                <td>
+                    <label for="hearth3">Vie</label>
+                    <input class="form-control" type="text" id="hearth3">
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>
+                    <label for="mana">Mana</label>
+                    <input class="form-control" type="text" id="mana">
                 </td>
             </tr>
         </table>
+        <button id="attack" class="btn btn-danger">Attack!</button>
+        <div id="comments"></div>
+        <div id="comment"></div>
+        <div id="commentsM"></div>
     </div>
     <!-- /.container -->
 </main>
+<footer class="footer mt-5">
+    <div class="container">
+        <span class="text-muted text-center">Made of @gustavo</span>
+    </div>
+</footer>
 </body>
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/main.js"></script>
