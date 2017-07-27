@@ -54,8 +54,8 @@ function warrior(name, attack, defense, hearth) {
     this.defense = defense;
     this.hearth = hearth;
 }
-var warrior1 = new warrior('hulk', 10, 10, 100);
-var warrior2 = new warrior('superman', 15, 15, 100);
+var warrior1 = new warrior('hulk', 10, 15, 100);
+var warrior2 = new warrior('superman', 15, 20, 100);
 var warrior3 = new warrior('merlin', 15, 15, 10);
 warrior.prototype.mana = 80;
 $('#warrior1').val(warrior1.name);
@@ -80,7 +80,7 @@ function attack(player1, player2) {
             player1.hearth -= player2.attack;
         }
         $('#hearth1').val(player1.hearth);
-        $('#comment').text(player1.name + ' attaque ' + player2.name + ' il perd ' + lifer + ' point de vie');
+        $('#comment').text(player1.name + ' attaque ' + player2.name + ' il perd ' + lifer+ ' point de vie');
     } else {
         $('#comment').text('Le combatant '+player2.name+' n\'as Plus de vie');
     }
