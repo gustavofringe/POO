@@ -57,7 +57,7 @@ function warrior(name, attack, defense, hearth) {
 var warrior1 = new warrior('hulk', 10, 10, 100);
 var warrior2 = new warrior('superman', 15, 15, 100);
 var warrior3 = new warrior('merlin', 15, 15, 10);
-warrior3.mana = 80;
+warrior.prototype.mana = 80;
 $('#warrior1').val(warrior1.name);
 $('#warrior2').val(warrior2.name);
 $('#warrior3').val(warrior3.name);
