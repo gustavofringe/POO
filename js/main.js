@@ -48,16 +48,69 @@ function check() {
  *
  *
  **/
-function warrior(name, attack, defense, hearth) {
+
+var life = 0;
+var lifee = 0;
+function warriors(name, attack, defense, hearth) {
     this.name = name;
     this.attack = attack;
     this.defense = defense;
     this.hearth = hearth;
+    this.fight = function(warrior){
+        if(this.hearth>0 && warrior.hearth>0) {
+            life += this.attack - warrior.defense;
+            lifee += warrior.attack - this.defense;
+            console.log(life)
+            warrior.hearth -= this.attack - warrior.defense;
+            $('#hearth1').val(this.hearth);
+            $('#hearth2').val(warrior.hearth);
+            $('#comments').text(warrior.name + ' attaque ' + this.name + ' il perd ' + life + ' point de vie');
+            $('#comment').text(this.name + ' attaque ' + warrior.name + ' il perd ' + lifee+ ' point de vie');
+        }else {
+            $('#comments').text('Le combatant '+this.name+' n\'as Plus de vie '+warrior.name+' remporte la partie');
+        }
+    }
 }
-var warrior1 = new warrior('hulk', 10, 15, 100);
-var warrior2 = new warrior('superman', 15, 20, 100);
-var warrior3 = new warrior('merlin', 15, 15, 10);
-warrior.prototype.mana = 80;
+/**
+ *
+ *
+ *
+ *
+ * */
+function magician(name, attack, defense, hearth,mana) {
+    this.name = name;
+    this.attack = attack;
+    this.defense = defense;
+    this.hearth = hearth;
+    this.mana = mana;
+    this.regenere = function () {
+        if (this.mana > 10) {
+         this.mana -= 10;
+         this.hearth += 10;
+         $('#hearth3').val(this.hearth);
+         $('#mana').val(this.mana);
+         $('#commentsM').text(this.name + ' est en train de se soigner il a '+this.hearth+' points de vie');
+         }
+         else {
+         $('#commentsM').text('plus de mana');
+         }
+    }
+}
+/**
+ *
+ *
+ *
+ *
+ * */
+var warrior1 = new warriors('hulk', 10, 5, 100);
+var warrior2 = new warriors('superman', 15, 5, 100);
+var warrior3 = new magician('merlin', 15, 15, 10,80);
+/**
+ *
+ *
+ *
+ *
+ * */
 $('#warrior1').val(warrior1.name);
 $('#warrior2').val(warrior2.name);
 $('#warrior3').val(warrior3.name);
@@ -71,38 +124,17 @@ $('#hearth1').val(warrior1.hearth);
 $('#hearth2').val(warrior2.hearth);
 $('#hearth3').val(warrior3.hearth);
 $('#mana').val(warrior3.mana);
-var life = 0;
-var lifea = 0;
-function attack(player1, player2) {
-    if (player2.hearth > 0) {
-        var lifer = life += parseInt($('#attack1').val());
-        if(player1.hearth>0) {
-            player1.hearth -= player2.attack;
-        }
-        $('#hearth1').val(player1.hearth);
-        $('#comment').text(player1.name + ' attaque ' + player2.name + ' il perd ' + lifer+ ' point de vie');
-    } else {
-        $('#comment').text('Le combatant '+player2.name+' n\'as Plus de vie');
-    }
-    if(player1.hearth > 0 ){
-        var lifero = lifea += parseInt($('#attack2').val());
-        player2.hearth -= player1.attack;
-        $('#hearth2').val(player2.hearth);
-        $('#comments').text(player2.name + ' attaque ' + player1.name + ' il perd ' + lifero + ' point de vie');
-    }else{
-        $('#comments').text('Le combatant '+player1.name+' n\'as Plus de vie');
-    }
-}
+/**
+ *
+ *
+ *
+ *
+ * */
 $('#attack').click(function () {
-    attack(warrior1, warrior2);
-    if (warrior3.mana > 10) {
-        warrior3.mana -= 10;
-        warrior3.hearth += 10;
-        $('#hearth3').val(warrior3.hearth);
-        $('#mana').val(warrior3.mana);
-        $('#commentsM').text(warrior3.name + ' est en train de se soigner');
-    }
-    else {
-        $('#commentsM').text('plus de mana');
-    }
+    warrior2.fight(warrior1);
+    warrior1.fight(warrior2);
+    console.log(warrior1.hearth+warrior1.name)
+    console.log(warrior2.hearth+warrior2.name)
+    warrior3.regenere()
+
 })
