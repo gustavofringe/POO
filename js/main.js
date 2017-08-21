@@ -49,8 +49,8 @@ function check() {
  *
  **/
 
-var $life = 0;
-var $lifee = 0;
+//var $life = 0;
+//var $lifee = 0;
 function warriors(name, attack, defense, hearth) {
     this.name = name;
     this.attack = attack;
@@ -58,12 +58,16 @@ function warriors(name, attack, defense, hearth) {
     this.hearth = hearth;
     this.fight = function(warrior){
         if(this.hearth>0 && warrior.hearth>0) {
-            $life += this.attack - warrior.defense;
-            $lifee += warrior.attack - this.defense;
-            console.log(life)
+            //$life += this.attack - warrior.defense;
+            //$lifee += warrior.attack - this.defense;
             warrior.hearth -= this.attack - warrior.defense;
             $('#hearth1').val(this.hearth);
+            $hearthPlayer1 = $('#hearth1').val();
             $('#hearth2').val(warrior.hearth);
+            $hearthplayer2 = $('#hearth2').val();
+            $life = $hearthPlayer1 - this.hearth;
+            $lifee = $hearthplayer2 - warrior.hearth;
+            console.log($life)
             $('#comments').text(warrior.name + ' attaque ' + this.name + ' il perd ' + $life + ' point de vie');
             $('#comment').text(this.name + ' attaque ' + warrior.name + ' il perd ' + $lifee+ ' point de vie');
         }else {
@@ -73,7 +77,7 @@ function warriors(name, attack, defense, hearth) {
 }
 /**
  *
- *
+ *magician object
  *
  *
  * */
@@ -99,7 +103,7 @@ function magician(name, attack, defense, hearth,mana) {
 /**
  *
  *
- *
+ *attribute value of object
  *
  * */
 var warrior1 = new warriors('hulk', 10, 5, 100);
@@ -107,7 +111,7 @@ var warrior2 = new warriors('superman', 15, 5, 100);
 var warrior3 = new magician('merlin', 15, 15, 10,80);
 /**
  *
- *
+ *display value
  *
  *
  * */
@@ -126,15 +130,13 @@ $('#hearth3').val(warrior3.hearth);
 $('#mana').val(warrior3.mana);
 /**
  *
- *
+ *action
  *
  *
  * */
 $('#attack').click(function () {
     warrior2.fight(warrior1);
     warrior1.fight(warrior2);
-    console.log(warrior1.hearth+warrior1.name)
-    console.log(warrior2.hearth+warrior2.name)
     warrior3.regenere()
 
 })
