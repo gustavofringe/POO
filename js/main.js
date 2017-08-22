@@ -58,10 +58,10 @@ function warriors(name, attack, defense, hearth) {
             warrior.hearth -= this.attack - warrior.defense;
             $('#hearth1').val(this.hearth);
             $('#hearth2').val(warrior.hearth);
-            var $lifeLeave = 100 - $('#hearth1').val();
-            var $lifeLeave2 = 100 - $('#hearth2').val();
-            $('#comments').text(warrior.name + ' attaque ' + this.name + ' il perd ' + $lifeLeave2 + ' points de vie');
-            $('#comment').text(this.name + ' attaque ' + warrior.name + ' il perd ' + $lifeLeave+ ' points de vie');
+            var $remainingLife = 100 - $('#hearth1').val();
+            var $remainingLife2 = 100 - $('#hearth2').val();
+            $('#comments').text(warrior.name + ' attaque ' + this.name + ' il perd ' + $remainingLife2 + ' points de vie');
+            $('#comment').text(this.name + ' attaque ' + warrior.name + ' il perd ' + $remainingLife+ ' points de vie');
         }else {
             $('#comments').text('Le combatant '+this.name+' n\'as Plus de vie '+warrior.name+' remporte la partie');
         }
