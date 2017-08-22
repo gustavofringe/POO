@@ -48,9 +48,6 @@ function check() {
  *
  *
  **/
-
-//var $life = 0;
-//var $lifee = 0;
 function warriors(name, attack, defense, hearth) {
     this.name = name;
     this.attack = attack;
@@ -58,18 +55,13 @@ function warriors(name, attack, defense, hearth) {
     this.hearth = hearth;
     this.fight = function(warrior){
         if(this.hearth>0 && warrior.hearth>0) {
-            //$life += this.attack - warrior.defense;
-            //$lifee += warrior.attack - this.defense;
             warrior.hearth -= this.attack - warrior.defense;
             $('#hearth1').val(this.hearth);
-            $hearthPlayer1 = $('#hearth1').val();
             $('#hearth2').val(warrior.hearth);
-            $hearthplayer2 = $('#hearth2').val();
-            $life = $hearthPlayer1 - this.hearth;
-            $lifee = $hearthplayer2 - warrior.hearth;
-            console.log($life)
-            $('#comments').text(warrior.name + ' attaque ' + this.name + ' il perd ' + $life + ' point de vie');
-            $('#comment').text(this.name + ' attaque ' + warrior.name + ' il perd ' + $lifee+ ' point de vie');
+            var $lifeLeave = 100 - $('#hearth1').val();
+            var $lifeLeave2 = 100 - $('#hearth2').val();
+            $('#comments').text(warrior.name + ' attaque ' + this.name + ' il perd ' + $lifeLeave2 + ' points de vie');
+            $('#comment').text(this.name + ' attaque ' + warrior.name + ' il perd ' + $lifeLeave+ ' points de vie');
         }else {
             $('#comments').text('Le combatant '+this.name+' n\'as Plus de vie '+warrior.name+' remporte la partie');
         }
