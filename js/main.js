@@ -3,7 +3,8 @@
  * exrecice 1/1
  *
  * */
-function user(lastname, firstname, country, age, means) {
+function user(lastname, firstname, country, age, means) 
+{
     this.lastname = lastname;
     this.firstname = firstname;
     this.country = country;
@@ -12,7 +13,8 @@ function user(lastname, firstname, country, age, means) {
 
 }
 
-function authorize(country, means, age) {
+function authorize(country, means, age) 
+{
     this.country = country;
     this.means = means;
     this.age = age;
@@ -31,10 +33,12 @@ $('#country').val(user1.country);
  * */
 
 var authorized = new authorize(['ETATS-UNIS', 'FRANCE', 'SUEDE'], ['MONEY', 'MASTERCARD', 'GOLD'], 40);
-function check() {
+function check() 
+{
     var x, y, z;
     authorized.age > user1.age ? $('#check').text("Vous n'avez pas l'age requis") : $('#check').text("Vous avez l'age requis");
-    for (x in authorized.country) {
+    for (x in authorized.country) 
+    {
         authorized.country[x].toLowerCase() == user1.country.toLowerCase() ? $('#check2').text("Vous ne rentrer pas") : $('#check2').text("Vous rentrer");
     }
     for (z in user1.means) {
